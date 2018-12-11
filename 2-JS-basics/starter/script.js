@@ -40,3 +40,4 @@ alert('Is John married? ' + isMarried);
 
 var lastName = prompt('What is his last Name?');
 console.log(lastName);
+console.log(firstName);
