@@ -51,6 +51,13 @@ var markHeight, johnHeight;
 var markBMI, johnBMI;
 var markBMIisGreaterThanJohnBMI;
 
+
+const i = '30'
+
+const obj = '{"name": "Semyon"}';
+
+const tbl = ['a', 'b', 'c', 'd']
+
 markMass = 100;
 johnMass = 70;
 
@@ -68,3 +75,22 @@ console.log("-------------------");
 console.log("Mark BMI is ", markBMI, " and John BMI is ", johnBMI);
 console.log("-------------------");
 console.log("Is Mark BMI greater than JohnBMI? ", markBMIisGreaterThanJohnBMI);
+
+obj.firstName = "Ivan"
+
+
+if (i ===  30) {
+    console.log('true1')
+}
+
+if (i ==  30) {
+    console.log('true2')
+}
+
+
+console.log(`some string ${JSON.stringify( i )}`);
+console.log(`some string ${JSON.parse( obj )}`);
+console.log(obj);
+console.log(JSON.parse( obj ));
+console.log(tbl)
+console.table(tbl)
