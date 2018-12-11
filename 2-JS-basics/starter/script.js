@@ -25,7 +25,7 @@ var johnMarrk = 'John and Mark';
 
 /**************************************************
 * Variables mitation and type coercion
-*/
+* /*
 
 var firstName = 'John';
 var age = 28;
@@ -40,4 +40,31 @@ alert('Is John married? ' + isMarried);
 
 var lastName = prompt('What is his last Name?');
 console.log(lastName);
-console.log(firstName);
+*/
+
+/**************************************************
+* Chalenge 1
+*/
+
+var markMass, johnMass;
+var markHeight, johnHeight;
+var markBMI, johnBMI;
+var markBMIisGreaterThanJohnBMI;
+
+markMass = 100;
+johnMass = 70;
+
+markHeight = 1.70;
+johnHeight = 1.80;
+
+markBMI = markMass/markHeight**2;
+johnBMI = johnMass/johnHeight**2;
+
+markBMIisGreaterThanJohnBMI = markBMI > johnBMI;
+
+console.log("Mark mass is: ", markMass, " and height is: ", markHeight);
+console.log("John mass is: ", johnMass, " and height is: ", johnHeight);
+console.log("-------------------");
+console.log("Mark BMI is ", markBMI, " and John BMI is ", johnBMI);
+console.log("-------------------");
+console.log("Is Mark BMI greater than JohnBMI? ", markBMIisGreaterThanJohnBMI);
