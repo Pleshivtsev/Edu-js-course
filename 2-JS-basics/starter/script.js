@@ -157,7 +157,7 @@ for(i=0; i<basicArray.length; i++){
 
 /**************************************************
 * Chalenge 3
-*/
+* /*
 
 var bills = [124,48, 268];
 
@@ -187,10 +187,30 @@ function getTotalBils(billsAr, tipsAr){
     return totalBills;      
 }
 
+function calcTotalBill(bill){
+    return bill +=calculateTip(bill);
+}
+
 function getTips2(billsAr){
     let tips = [];
     billsAr.forEach(bill => tips.push(calculateTip(bill)));
     return tips;
+}
+
+function getTotalBils2(billsAr){
+    let totalBills = [];
+    billsAr.forEach(bill => totalBills.push(calcTotalBill(bill)) );
+    return totalBills;
+}
+
+function billsParser(bill, index, billsAr){
+    console.log("bill: ", billsAr[index], 
+                "tip: ", calculateTip(billsAr[index]),
+                "total:", calcTotalBill(billsAr[index]));
+}
+
+function parseBills(billsAr){
+    billsAr.forEach(billsParser);
 }
 
 
@@ -199,4 +219,34 @@ console.log(getTips(bills));
 console.log(getTotalBils(bills,getTips(bills)));
 console.log("****************************");
 console.log(getTips2(bills));
+console.log(getTotalBils2(bills));
+parseBills(bills);
+*/
 
+/**************************************************
+* Chalenge 4
+*/
+var john = {
+    height: 1.80,
+    mass: 70,
+    calcBMI: function() {
+        this.bmi = this.mass/this.height**2;
+        return this.bmi;
+    }
+}
+
+var mark = {
+    height: 1.80,
+    mass: 60,
+    calcBMI: function() {
+        this.bmi = this.mass/this.height**2;
+        return this.bmi;
+    }
+}
+
+console.log("John BMI is:", john.calcBMI(), "Mark BMI is:", mark.calcBMI());
+switch(true){
+    case john.bmi === mark.bmi: console.log("John and Mark has equal BMI"); break;    
+    case john.bmi < mark.bmi: console.log("Jonn BMI is better"); break;
+    default : console.log("Mark BMI is better");  
+}
