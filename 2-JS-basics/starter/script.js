@@ -226,7 +226,9 @@ parseBills(bills);
 /**************************************************
 * Chalenge 4
 */
-var john = {
+var bmi = 100;
+
+const john = {
     height: 1.80,
     mass: 70,
     calcBMI: function() {
@@ -244,9 +246,23 @@ var mark = {
     }
 }
 
-console.log("John BMI is:", john.calcBMI(), "Mark BMI is:", mark.calcBMI());
+
+const btn =  document.getElementById('calcTips').addEventListener('click', function ()  {
+    console.log(`BMI are ${john.calcBMI()}`)
+})
+    
 switch(true){
     case john.bmi === mark.bmi: console.log("John and Mark has equal BMI"); break;    
     case john.bmi < mark.bmi: console.log("Jonn BMI is better"); break;
     default : console.log("Mark BMI is better");  
 }
+
+function calculateTip(bill){
+    switch(true){
+        case bill < 50  : return bill *.20;
+        case bill < 200 : return bill *.15;
+        default         : return bill *.10;
+    }
+}
+
+console.log("tips are: ${calculateTip(30)}")
