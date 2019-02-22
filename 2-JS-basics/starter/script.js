@@ -258,11 +258,113 @@ switch(true){
 }
 
 function calculateTip(bill){
-    switch(true){
-        case bill < 50  : return bill *.20;
-        case bill < 200 : return bill *.15;
-        default         : return bill *.10;
-    }
+    if (bill < 50) return bill *.20;
+    if (bill <200) return bill *.15;
+    return bill *.10;
+
+    // switch(true){
+    //     case bill < 50  : return bill *.20;
+    //     case bill < 200 : return bill *.15;
+    //     default         : return bill *.10;
+    // }
 }
 
-console.log("tips are: ${calculateTip(30)}")
+//console.log(`tips are: ${calculateTip(130)}`);
+
+/*
+fizzbuzz — вывести в столбик числа от 1 до 30, 
+если число делится на 3 — то вместо него fizz, 
+если делится на 5 — то buzz, если и на 3, и на 5 — то fizzbuz
+*/
+
+// Попытка 1
+/*
+for (let j=1; j<=30; j++){        
+    let rest3 = j/3 - Math.floor(j/3);
+    let rest5 = j/5 - Math.floor(j/5);
+    let postfix = "";
+
+    if (rest3 === 0) postfix += "fizz";
+    if (rest5 === 0) postfix += "buzz"
+
+    if(postfix !== "") {
+        console.log(j, postfix);
+    } else console.log(j);
+    
+}
+*/
+
+//Попытка 2
+/*
+(function buzz(j){
+    var str = j.toString() + " ";
+    
+    if (j/3 === Math.floor(j/3)) str += "fizz";
+    if (j/5 === Math.floor(j/5)) str += "buzz";
+    
+    console.log(str);
+    
+    if (j < 30) buzz(j+1);
+        
+})(1);
+*/
+
+
+// Попытка 3
+/*
+for (let j = 1; j<=30; j++){
+    let str = j.toString() + " ";
+
+    j%3 === 0 ? str +="fizz": str += "";
+    j%5 === 0 ? str +="buzz": str += "";
+
+    console.log(str);
+}
+*/
+
+// Попытка 4, тоже самое через foreach;
+/*
+const arr4 = [...Array(30).keys()]; // Инициализация массива
+const iterator = function(item, idx, arr){
+    let str = (idx+1).toString() + " ";
+
+    (idx+1)%3 === 0 ? str +="fizz": str += "";
+    (idx+1)%5 === 0 ? str +="buzz": str += "";
+
+    console.log(str);
+}
+
+//arr4.forEach(iterator);
+arr4.forEach(el => {
+    let str = (el+1).toString() + " ";
+
+    (el+1)%3 === 0 ? str +="fizz": str += "";
+    (el+1)%5 === 0 ? str +="buzz": str += "";
+
+    console.log(str);
+});
+
+*/
+// Попытка 5, тоже самое через reduce;
+const arr5 = [...Array(30).keys()]; // Инициализация массива
+const reducer = function(resultString, el){    
+    let str = (el+1).toString() + " ";
+    (el+1)%3 === 0 ? str +="fizz": str += "";
+    (el+1)%5 === 0 ? str +="buzz": str += "";
+    return resultString + str + "\r\n";    
+}
+
+//console.log(arr5.reduce(reducer,""));
+const toPrint = arr5.reduce((resultString,el) => {
+    let str = (el+1).toString() + " ";
+    (el+1)%3 === 0 ? str +="fizz": str += "";
+    (el+1)%5 === 0 ? str +="buzz": str += "";
+    return resultString + str + "\r\n";  
+},"");
+//console.log(toPrint);
+
+//Попытка 6. тоже самое через reduce, но в 1 строчку. Чисто ради развлечения.
+//console.log( [...Array(30).keys() ].reduce((res,el) => res + (el + 1) + " " + ((el + 1) % 3 === 0 ? "fizz" : "") + ((el + 1) % 5 === 0 ? "buzz" : "") + "\r\n",""));
+console.log([...Array(30).keys()].reduce((res,el)=>res+(el+1)+" "+((el+1)%3===0?"fizz":"")+((el+1)%5===0?"buzz":"")+"\r\n",""));
+
+

@@ -14,9 +14,14 @@
             <div class="player-0-panel active">
                 <div class="player-name" id="name-0">Player 1</div>
                 <div class="player-score" id="score-0">43</div>
+                
                 <div class="player-current-box">
                     <div class="player-current-label">Current</div>
-                    <div class="player-current-score" id="current-0">11</div>
+                    <div class="player-current-score" id="current-0">11</div>                    
+                </div>
+                <div class="previous">
+                    <div class="label">Previous: </div>
+                    <div class="value" id="previous-0">-1</div>
                 </div>
             </div>
             
@@ -27,13 +32,20 @@
                     <div class="player-current-label">Current</div>
                     <div class="player-current-score" id="current-1">0</div>
                 </div>
+                <div class="previous">
+                    <div class="label">Previous:</div>
+                    <div class="value" id="previous-1">-1</div>
+                </div>
             </div>
             
             <button class="btn-new"><i class="ion-ios-plus-outline"></i>New game</button>
+            <input type="number" id="score-to-win"/>
             <button class="btn-roll"><i class="ion-ios-loop"></i>Roll dice</button>
             <button class="btn-hold"><i class="ion-ios-download-outline"></i>Hold</button>
             
-            <img src="dice-5.png" alt="Dice" class="dice">
+            <img src="dice-5.png" alt="Dice" class="dice" id="dice-1">
+            <img src="dice-5.png" alt="Dice" class="dice" id="dice-2">
+
         </div>
         
         <script src="app.js"></script>
