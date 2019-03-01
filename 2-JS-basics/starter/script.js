@@ -355,7 +355,7 @@ const reducer = function(resultString, el){
 }
 
 //console.log(arr5.reduce(reducer,""));
-const toPrint = arr5.reduce((resultString,el) => {
+const toPrint = arr5.reduce((resultString, el) => {
     let str = (el+1).toString() + " ";
     (el+1)%3 === 0 ? str +="fizz": str += "";
     (el+1)%5 === 0 ? str +="buzz": str += "";
@@ -365,6 +365,20 @@ const toPrint = arr5.reduce((resultString,el) => {
 
 //Попытка 6. тоже самое через reduce, но в 1 строчку. Чисто ради развлечения.
 //console.log( [...Array(30).keys() ].reduce((res,el) => res + (el + 1) + " " + ((el + 1) % 3 === 0 ? "fizz" : "") + ((el + 1) % 5 === 0 ? "buzz" : "") + "\r\n",""));
-console.log([...Array(30).keys()].reduce((res,el)=>res+(el+1)+" "+((el+1)%3===0?"fizz":"")+((el+1)%5===0?"buzz":"")+"\r\n",""));
+//console.log([...Array(30).keys()].reduce((res,el)=> res+(el+1)+" "+((el+1)%3===0?"fizz":"")+((el+1)%5===0?"buzz":"")+"\r\n",""));
 
+const toPrint2 = arr5.reduce((res,el) => {    
+    res += (el+1) + " ";
+    (el+1)%3 === 0 ? res +="fizz": "";
+    (el+1)%5 === 0 ? res +="buzz": "";
+    return res + "\r\n";
+},"");
 
+const arr5mod = [...Array(30).keys()].map(el => el+1);
+
+const fizzBuzz = [...Array(30).keys()].map(el => el+1).reduce((res,el) => {
+    res += el + " ";
+    el%3 === 0 ? res +="fizz": "";
+    el%5 === 0 ? res +="buzz": "";
+    return res + "\r\n";
+},"");
